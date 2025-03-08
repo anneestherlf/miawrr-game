@@ -198,31 +198,43 @@ class Jogo extends Phaser.Scene {
 
         // Configura o placar
         this.placar = this.add.text(50, 50, 'Rubis: ' + this.pontuacao, {
-            fontSize: '32px',
-            fill: '#fff'
-        }).setScrollFactor(0);
+            fontSize: '20px',
+            padding: { x: 10, y: 5 } // Espaçamento interno
+        })
+            .setScrollFactor(0) // Fixa o placar na tela
+            .setBackgroundColor('#ffffff') // Fundo branco
+            .setStroke('#000000', 4) // Borda preta com 4px de espessura
+            .setDepth(10); // Garante que o placar fique acima de outros elementos
     }
 
     update() {
         // Movimentação do fundo em parallax
         this.fundo.tilePositionX += 1;
 
+        // Configura os controles WASD
+        this.teclado = {
+            W: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W), // Pulo
+            A: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A), // Esquerda
+            S: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S), // Baixo (não usado no exemplo)
+            D: this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D)  // Direita
+        };
+
         // Movimentação de Mia
-        if (this.teclado.left.isDown) {
+        if (this.teclado.A.isDown) {
             this.mia.setVelocityX(-160);
             this.mia.anims.play('correr', true);
-            this.mia.setFlipX(true);
-        } else if (this.teclado.right.isDown) {
+            this.mia.setFlipX(true); // Vira Mia para a esquerda
+        } else if (this.teclado.D.isDown) {
             this.mia.setVelocityX(160);
             this.mia.anims.play('correr', true);
-            this.mia.setFlipX(false);
+            this.mia.setFlipX(false); // Vira Mia para a direita
         } else {
             this.mia.setVelocityX(0);
             this.mia.anims.play('parado', true);
         }
 
         // Pulo
-        if ((this.teclado.up.isDown || this.spaceKey.isDown) && this.mia.body.blocked.down) {
+        if ((this.teclado.W.isDown || this.spaceKey.isDown) && this.mia.body.blocked.down) {
             this.mia.setVelocityY(-700);
             this.mia.anims.play('pular', true);
         }
