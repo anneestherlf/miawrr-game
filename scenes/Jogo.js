@@ -199,11 +199,11 @@ class Jogo extends Phaser.Scene {
         // Configura o placar
         this.placar = this.add.text(50, 50, 'Rubis: ' + this.pontuacao, {
             fontSize: '20px',
+            fill: '#000', // Cor do texto (preto)
             padding: { x: 10, y: 5 } // Espaçamento interno
         })
             .setScrollFactor(0) // Fixa o placar na tela
             .setBackgroundColor('#ffffff') // Fundo branco
-            .setStroke('#000000', 4) // Borda preta com 4px de espessura
             .setDepth(10); // Garante que o placar fique acima de outros elementos
     }
 
