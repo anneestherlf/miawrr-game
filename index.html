@@ -1,17 +1,24 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<!-- Define o tipo de documento como HTML5 -->
+<html lang="pt-br"> <!-- Define o idioma da página como português do Brasil -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miawrr: Ilha de Rubis</title>
+    <!-- Meta tags para configuração do documento -->
+    <meta charset="UTF-8"> <!-- Define o conjunto de caracteres como UTF-8 (suporta acentos e caracteres especiais) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura a viewport para dispositivos móveis -->
+    <title>Miawrr: Ilha de Rubis</title> <!-- Título da página (aparece na aba do navegador) -->
+    
+    <!-- Inclui a biblioteca Phaser via CDN (Content Delivery Network) -->
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.js"></script>
 </head>
 <body>
-    <script src="scenes/TelaInicial.js"></script>
-    <script src="scenes/Tutorial.js"></script>
-    <script src="scenes/Jogo.js"></script>
-    <script src="scenes/Parabens.js"></script>
-    <script src="scenes/GameOver.js"></script>
+    <!-- Inclui os scripts das cenas do jogo -->
+    <script src="scenes/TelaInicial.js"></script> <!-- Script da cena inicial do jogo -->
+    <script src="scenes/Tutorial.js"></script> <!-- Script da cena de tutorial -->
+    <script src="scenes/Jogo.js"></script> <!-- Script da cena principal do jogo -->
+    <script src="scenes/Parabens.js"></script> <!-- Script da cena de parabéns (final do jogo) -->
+    <script src="scenes/GameOver.js"></script> <!-- Script da cena de Game Over -->
+    
+    <!-- Inclui o script principal do jogo (configuração e inicialização) -->
     <script src="game.js"></script>
 </body>
 </html>
